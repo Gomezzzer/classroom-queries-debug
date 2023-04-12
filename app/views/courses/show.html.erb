@@ -1,7 +1,7 @@
 <div class="row mb-3">
   <div class="col-md-8 offset-md-2">
     <h1>
-      Course #<%= course.id %> details
+      Course #<%= @course %> details
     </h1>
 
     <div class="row mb-3">
@@ -17,14 +17,14 @@
         Title
       </dt>
       <dd>
-        <%= course.title %>
+        <%= @course.title %>
       </dd>
 
       <dt>
         Term offered
       </dt>
       <dd>
-        <%= course.term_offered %>
+        <%= @course.term_offered %>
       </dd>
 
       <dt>
@@ -60,4 +60,3 @@
     </li>
   <% end %>
 </ul>
-
