@@ -1,7 +1,7 @@
 <div class="row mb-3">
   <div class="col-md-8 offset-md-2">
     <h1>
-      Course #<%= @course %> details
+      Course #<%= @the_course.id %> details
     </h1>
 
     <div class="row mb-3">
@@ -13,18 +13,19 @@
     </div>
 
     <dl>
+      <% @list_of_courses.each do |course| %>
       <dt>
         Title
       </dt>
       <dd>
-        <%= @course.title %>
+        <%= course.title %>
       </dd>
 
       <dt>
         Term offered
       </dt>
       <dd>
-        <%= @course.term_offered %>
+        <%= course.term_offered %>
       </dd>
 
       <dt>
@@ -58,5 +59,6 @@
         <%= student.first_name %> <%= student.last_name %>
       </a>
     </li>
+  <% end %>
   <% end %>
 </ul>
