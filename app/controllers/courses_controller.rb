@@ -1,5 +1,6 @@
 class CoursesController < ApplicationController
   def index
+
     matching_courses = Course.all
 
     @list_of_courses = matching_courses.order({ :created_at => :desc })
@@ -11,6 +12,7 @@ class CoursesController < ApplicationController
 
     matching_courses = Course.where({ :id => the_id })
 
+    @list_of_courses = matching_courses.order({ :created_at => :desc })
     @the_course = matching_courses.at(0) 
 
     render({ :template => "courses/show.html.erb" })
