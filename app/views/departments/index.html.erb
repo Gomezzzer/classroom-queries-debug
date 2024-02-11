@@ -7,6 +7,23 @@
 </div>
 
 <hr>
+
+<form action="/insert_department" method="post">
+  <div>
+    <label for="name_box">
+      Name
+    </label>
+
+    <input type="text" id="name_box" name="query_name">
+  </div>
+
+  <button>
+    Create department
+  </button>
+</form>
+
+
+<hr>
 <div class="row mb-3">
   <div class="col-md-12">
     <table class="table" border="1">
@@ -23,7 +40,7 @@
         </th>
       </tr>
 
-      <% @list_of_departments.each do |department| %>
+      <% @departments.each do |department| %>
       <tr>
         <td>
           <%= department.id %>

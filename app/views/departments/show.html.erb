@@ -1,43 +1,58 @@
-<div class="row mb-3">
-  <div class="col-md-8 offset-md-2">
-    <h1>
-      Department #<%= @the_department %> details
-    </h1>
+<h1>
+  Department #<%= @department.id %> details
+</h1>
 
-    <div class="row mb-3">
-      <div class="col">
-        <a href="/departments">
-          Go back
-        </a>
-      </div>
-    </div>
+<div>
+  <a href="/departments">
+    Go back
+  </a>
+</div>
 
-    <dl>
-      <dt>
-        Name
-      </dt>
-      <dd>
-        <%= @the_department.name %>
-      </dd>
-      <dd>
-      English
-      </dd>
-
-      <dt>
-        Number of courses
-      </dt>
-      <dd>
-        <%= Course.where({ :department_id => @the_department }).count %> 
-      </dd>
-
-    </dl>
-  </div>
+<div>
+  <a href="/delete_department/<%= @department.id %>">
+    Delete department
+  </a>
 </div>
 
 <hr>
 
+<form action="/modify_department/<%= @department.id %>" method="post">
+  <div>
+    <label for="name_box">
+      Name
+    </label>
+
+    <input type="text" id="name_box" name="query_name" value="<%= @department.name %>">
+  </div>
+
+  <button>
+    Update department
+  </button>
+</form>
+
+<hr>
+
+<dl>
+  <dt>
+    Name
+  </dt>
+  <dd>
+    <%= @department.name %>
+  </dd>
+
+  <dt>
+    Number of courses
+  </dt>
+  <dd>
+    <%= Course.where({ :department_id => @department.id }).count %>
+  </dd>
+
+</dl>
+
+<hr>
+
 <h2>Courses</h2>
-<% courses = Course.where({ :department_id => @the_department }) %>
+<% courses = Course.where({ :department_id => @department.id }) %>
 <ul>
   <% courses.each do |course| %>
     <li>
